@@ -6,10 +6,26 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AppRoot {
+    }
+    interface DashboardPage {
+    }
     interface LoginPage {
     }
 }
 declare global {
+    interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
+    }
+    var HTMLAppRootElement: {
+        prototype: HTMLAppRootElement;
+        new (): HTMLAppRootElement;
+    };
+    interface HTMLDashboardPageElement extends Components.DashboardPage, HTMLStencilElement {
+    }
+    var HTMLDashboardPageElement: {
+        prototype: HTMLDashboardPageElement;
+        new (): HTMLDashboardPageElement;
+    };
     interface HTMLLoginPageElement extends Components.LoginPage, HTMLStencilElement {
     }
     var HTMLLoginPageElement: {
@@ -17,13 +33,21 @@ declare global {
         new (): HTMLLoginPageElement;
     };
     interface HTMLElementTagNameMap {
+        "app-root": HTMLAppRootElement;
+        "dashboard-page": HTMLDashboardPageElement;
         "login-page": HTMLLoginPageElement;
     }
 }
 declare namespace LocalJSX {
+    interface AppRoot {
+    }
+    interface DashboardPage {
+    }
     interface LoginPage {
     }
     interface IntrinsicElements {
+        "app-root": AppRoot;
+        "dashboard-page": DashboardPage;
         "login-page": LoginPage;
     }
 }
@@ -31,6 +55,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "dashboard-page": LocalJSX.DashboardPage & JSXBase.HTMLAttributes<HTMLDashboardPageElement>;
             "login-page": LocalJSX.LoginPage & JSXBase.HTMLAttributes<HTMLLoginPageElement>;
         }
     }
