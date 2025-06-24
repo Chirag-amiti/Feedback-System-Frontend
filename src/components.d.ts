@@ -12,6 +12,8 @@ export namespace Components {
     }
     interface LoginPage {
     }
+    interface NotFoundPage {
+    }
 }
 declare global {
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
@@ -32,10 +34,17 @@ declare global {
         prototype: HTMLLoginPageElement;
         new (): HTMLLoginPageElement;
     };
+    interface HTMLNotFoundPageElement extends Components.NotFoundPage, HTMLStencilElement {
+    }
+    var HTMLNotFoundPageElement: {
+        prototype: HTMLNotFoundPageElement;
+        new (): HTMLNotFoundPageElement;
+    };
     interface HTMLElementTagNameMap {
         "app-root": HTMLAppRootElement;
         "dashboard-page": HTMLDashboardPageElement;
         "login-page": HTMLLoginPageElement;
+        "not-found-page": HTMLNotFoundPageElement;
     }
 }
 declare namespace LocalJSX {
@@ -45,10 +54,13 @@ declare namespace LocalJSX {
     }
     interface LoginPage {
     }
+    interface NotFoundPage {
+    }
     interface IntrinsicElements {
         "app-root": AppRoot;
         "dashboard-page": DashboardPage;
         "login-page": LoginPage;
+        "not-found-page": NotFoundPage;
     }
 }
 export { LocalJSX as JSX };
@@ -58,6 +70,7 @@ declare module "@stencil/core" {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "dashboard-page": LocalJSX.DashboardPage & JSXBase.HTMLAttributes<HTMLDashboardPageElement>;
             "login-page": LocalJSX.LoginPage & JSXBase.HTMLAttributes<HTMLLoginPageElement>;
+            "not-found-page": LocalJSX.NotFoundPage & JSXBase.HTMLAttributes<HTMLNotFoundPageElement>;
         }
     }
 }
