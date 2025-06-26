@@ -16,5 +16,10 @@ export * from './components/app-root/app-root';
 export * from './pages/login-page/login-page';
 export * from './pages/dashboard-page/dashboard-page';
 export * from './pages/not-found-page/not-found-page';
+export * from './pages/dashboard-page/employee-dashboard';
+export * from './pages/dashboard-page/manager-dashboard';
+export * from './pages/signup-page/signup-page';
+export * from './pages/dashboard-page/employee-feedback-form';
+
 
 

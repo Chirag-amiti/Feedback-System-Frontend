@@ -1,0 +1,80 @@
+.feedback-form-container {
+  background-color: #ffffff;
+  padding: 24px;
+  margin: 32px auto;
+  border-radius: 10px;
+  max-width: 480px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.feedback-form-container h3 {
+  margin-bottom: 16px;
+  font-size: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.feedback-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.feedback-form-container label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #444;
+}
+
+.feedback-form-container select,
+.feedback-form-container input,
+.feedback-form-container textarea {
+  margin-top: 4px;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.feedback-form-container select:focus,
+.feedback-form-container input:focus,
+.feedback-form-container textarea:focus {
+  border-color: #007acc;
+}
+
+.feedback-form-container textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.feedback-form-container button {
+  padding: 12px;
+  background-color: #007acc;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.feedback-form-container button:hover {
+  background-color: #005fa3;
+}
+
+.feedback-form-container .success {
+  color: #0a8a0a;
+  font-weight: 500;
+  text-align: center;
+}
+
+.feedback-form-container .error {
+  color: #c10000;
+  font-weight: 500;
+  text-align: center;
+}

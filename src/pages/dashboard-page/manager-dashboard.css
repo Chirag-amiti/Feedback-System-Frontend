@@ -1,0 +1,34 @@
+.manager-dashboard {
+  padding: 2rem;
+  font-family: sans-serif;
+  background-color: #eef3f9;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 2rem auto;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.12);
+}
+
+.manager-dashboard h2 {
+  color: #2c3e50;
+}
+
+.manager-dashboard p {
+  margin: 0.5rem 0;
+}
+
+.actions {
+  margin-top: 1.5rem;
+}
+
+button {
+  background-color: #00796b;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #00695c;
+}

@@ -2,6 +2,7 @@ import { Component, h, Host } from '@stencil/core'; // Import Host for best prac
 import { match } from 'stencil-router-v2';
 // Import specific functions/components from stencil-router-v2
 import { createRouter, Route } from 'stencil-router-v2';
+
 // Create an instance of the router. This should typically be done once
 // at the top level where you define your router.
 const Router = createRouter();
@@ -28,8 +29,17 @@ export class AppRoot {
           <Route path="/">
             <login-page /> {/* Your login component */}
           </Route>
+           <Route path="/signup">
+            <signup-page /> {/* Your signup-page component */}
+          </Route>
           <Route path="/dashboard">
             <dashboard-page /> {/* Your dashboard component */}
+          </Route>
+           <Route path="/employee-dashboard">
+            <employee-dashboard /> {/* Your employee dashboard component */}
+          </Route>
+           <Route path="/manager-dashboard">
+            <manager-dashboard /> {/* Your manager dashboard component */}
           </Route>
 
           <Route path={match('/(.*)')}>

@@ -10,9 +10,17 @@ export namespace Components {
     }
     interface DashboardPage {
     }
+    interface EmployeeDashboard {
+    }
+    interface EmployeeFeedbackForm {
+    }
     interface LoginPage {
     }
+    interface ManagerDashboard {
+    }
     interface NotFoundPage {
+    }
+    interface SignupPage {
     }
 }
 declare global {
@@ -28,11 +36,29 @@ declare global {
         prototype: HTMLDashboardPageElement;
         new (): HTMLDashboardPageElement;
     };
+    interface HTMLEmployeeDashboardElement extends Components.EmployeeDashboard, HTMLStencilElement {
+    }
+    var HTMLEmployeeDashboardElement: {
+        prototype: HTMLEmployeeDashboardElement;
+        new (): HTMLEmployeeDashboardElement;
+    };
+    interface HTMLEmployeeFeedbackFormElement extends Components.EmployeeFeedbackForm, HTMLStencilElement {
+    }
+    var HTMLEmployeeFeedbackFormElement: {
+        prototype: HTMLEmployeeFeedbackFormElement;
+        new (): HTMLEmployeeFeedbackFormElement;
+    };
     interface HTMLLoginPageElement extends Components.LoginPage, HTMLStencilElement {
     }
     var HTMLLoginPageElement: {
         prototype: HTMLLoginPageElement;
         new (): HTMLLoginPageElement;
+    };
+    interface HTMLManagerDashboardElement extends Components.ManagerDashboard, HTMLStencilElement {
+    }
+    var HTMLManagerDashboardElement: {
+        prototype: HTMLManagerDashboardElement;
+        new (): HTMLManagerDashboardElement;
     };
     interface HTMLNotFoundPageElement extends Components.NotFoundPage, HTMLStencilElement {
     }
@@ -40,11 +66,21 @@ declare global {
         prototype: HTMLNotFoundPageElement;
         new (): HTMLNotFoundPageElement;
     };
+    interface HTMLSignupPageElement extends Components.SignupPage, HTMLStencilElement {
+    }
+    var HTMLSignupPageElement: {
+        prototype: HTMLSignupPageElement;
+        new (): HTMLSignupPageElement;
+    };
     interface HTMLElementTagNameMap {
         "app-root": HTMLAppRootElement;
         "dashboard-page": HTMLDashboardPageElement;
+        "employee-dashboard": HTMLEmployeeDashboardElement;
+        "employee-feedback-form": HTMLEmployeeFeedbackFormElement;
         "login-page": HTMLLoginPageElement;
+        "manager-dashboard": HTMLManagerDashboardElement;
         "not-found-page": HTMLNotFoundPageElement;
+        "signup-page": HTMLSignupPageElement;
     }
 }
 declare namespace LocalJSX {
@@ -52,15 +88,27 @@ declare namespace LocalJSX {
     }
     interface DashboardPage {
     }
+    interface EmployeeDashboard {
+    }
+    interface EmployeeFeedbackForm {
+    }
     interface LoginPage {
     }
+    interface ManagerDashboard {
+    }
     interface NotFoundPage {
+    }
+    interface SignupPage {
     }
     interface IntrinsicElements {
         "app-root": AppRoot;
         "dashboard-page": DashboardPage;
+        "employee-dashboard": EmployeeDashboard;
+        "employee-feedback-form": EmployeeFeedbackForm;
         "login-page": LoginPage;
+        "manager-dashboard": ManagerDashboard;
         "not-found-page": NotFoundPage;
+        "signup-page": SignupPage;
     }
 }
 export { LocalJSX as JSX };
@@ -69,8 +117,12 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "dashboard-page": LocalJSX.DashboardPage & JSXBase.HTMLAttributes<HTMLDashboardPageElement>;
+            "employee-dashboard": LocalJSX.EmployeeDashboard & JSXBase.HTMLAttributes<HTMLEmployeeDashboardElement>;
+            "employee-feedback-form": LocalJSX.EmployeeFeedbackForm & JSXBase.HTMLAttributes<HTMLEmployeeFeedbackFormElement>;
             "login-page": LocalJSX.LoginPage & JSXBase.HTMLAttributes<HTMLLoginPageElement>;
+            "manager-dashboard": LocalJSX.ManagerDashboard & JSXBase.HTMLAttributes<HTMLManagerDashboardElement>;
             "not-found-page": LocalJSX.NotFoundPage & JSXBase.HTMLAttributes<HTMLNotFoundPageElement>;
+            "signup-page": LocalJSX.SignupPage & JSXBase.HTMLAttributes<HTMLSignupPageElement>;
         }
     }
 }
