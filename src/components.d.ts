@@ -8,6 +8,8 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AppRoot {
     }
+    interface CreatePerformanceCycle {
+    }
     interface DashboardPage {
     }
     interface EmployeeDashboard {
@@ -17,6 +19,8 @@ export namespace Components {
     interface LoginPage {
     }
     interface ManagerDashboard {
+    }
+    interface ManagerFeedbackForm {
     }
     interface NotFoundPage {
     }
@@ -29,6 +33,12 @@ declare global {
     var HTMLAppRootElement: {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
+    };
+    interface HTMLCreatePerformanceCycleElement extends Components.CreatePerformanceCycle, HTMLStencilElement {
+    }
+    var HTMLCreatePerformanceCycleElement: {
+        prototype: HTMLCreatePerformanceCycleElement;
+        new (): HTMLCreatePerformanceCycleElement;
     };
     interface HTMLDashboardPageElement extends Components.DashboardPage, HTMLStencilElement {
     }
@@ -60,6 +70,12 @@ declare global {
         prototype: HTMLManagerDashboardElement;
         new (): HTMLManagerDashboardElement;
     };
+    interface HTMLManagerFeedbackFormElement extends Components.ManagerFeedbackForm, HTMLStencilElement {
+    }
+    var HTMLManagerFeedbackFormElement: {
+        prototype: HTMLManagerFeedbackFormElement;
+        new (): HTMLManagerFeedbackFormElement;
+    };
     interface HTMLNotFoundPageElement extends Components.NotFoundPage, HTMLStencilElement {
     }
     var HTMLNotFoundPageElement: {
@@ -74,17 +90,21 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "app-root": HTMLAppRootElement;
+        "create-performance-cycle": HTMLCreatePerformanceCycleElement;
         "dashboard-page": HTMLDashboardPageElement;
         "employee-dashboard": HTMLEmployeeDashboardElement;
         "employee-feedback-form": HTMLEmployeeFeedbackFormElement;
         "login-page": HTMLLoginPageElement;
         "manager-dashboard": HTMLManagerDashboardElement;
+        "manager-feedback-form": HTMLManagerFeedbackFormElement;
         "not-found-page": HTMLNotFoundPageElement;
         "signup-page": HTMLSignupPageElement;
     }
 }
 declare namespace LocalJSX {
     interface AppRoot {
+    }
+    interface CreatePerformanceCycle {
     }
     interface DashboardPage {
     }
@@ -96,17 +116,21 @@ declare namespace LocalJSX {
     }
     interface ManagerDashboard {
     }
+    interface ManagerFeedbackForm {
+    }
     interface NotFoundPage {
     }
     interface SignupPage {
     }
     interface IntrinsicElements {
         "app-root": AppRoot;
+        "create-performance-cycle": CreatePerformanceCycle;
         "dashboard-page": DashboardPage;
         "employee-dashboard": EmployeeDashboard;
         "employee-feedback-form": EmployeeFeedbackForm;
         "login-page": LoginPage;
         "manager-dashboard": ManagerDashboard;
+        "manager-feedback-form": ManagerFeedbackForm;
         "not-found-page": NotFoundPage;
         "signup-page": SignupPage;
     }
@@ -116,11 +140,13 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "create-performance-cycle": LocalJSX.CreatePerformanceCycle & JSXBase.HTMLAttributes<HTMLCreatePerformanceCycleElement>;
             "dashboard-page": LocalJSX.DashboardPage & JSXBase.HTMLAttributes<HTMLDashboardPageElement>;
             "employee-dashboard": LocalJSX.EmployeeDashboard & JSXBase.HTMLAttributes<HTMLEmployeeDashboardElement>;
             "employee-feedback-form": LocalJSX.EmployeeFeedbackForm & JSXBase.HTMLAttributes<HTMLEmployeeFeedbackFormElement>;
             "login-page": LocalJSX.LoginPage & JSXBase.HTMLAttributes<HTMLLoginPageElement>;
             "manager-dashboard": LocalJSX.ManagerDashboard & JSXBase.HTMLAttributes<HTMLManagerDashboardElement>;
+            "manager-feedback-form": LocalJSX.ManagerFeedbackForm & JSXBase.HTMLAttributes<HTMLManagerFeedbackFormElement>;
             "not-found-page": LocalJSX.NotFoundPage & JSXBase.HTMLAttributes<HTMLNotFoundPageElement>;
             "signup-page": LocalJSX.SignupPage & JSXBase.HTMLAttributes<HTMLSignupPageElement>;
         }

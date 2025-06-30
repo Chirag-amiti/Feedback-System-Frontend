@@ -7,22 +7,36 @@ import { apiFetch } from '../../utils/apiFetch';
   shadow: false,
 })
 export class ManagerDashboard {
-  @State() user: any = null;
-  @State() loading: boolean = true;
+  @State() feedbacks: any[] = [];
   @State() error: string = '';
+  @State() user: any = null;
+  @State() showFeedbackForm: boolean = false; // ✅ Already present
+  @State() showCycleForm: boolean = false;    // ✅ NEW for cycle form
 
   async componentWillLoad() {
     try {
-      const res = await apiFetch('/api/users/me');
-      const data = await res.json();
-      this.user = data;
+      const userRes = await apiFetch('/api/users/me');
+      this.user = await userRes.json();
     } catch (err) {
-      console.error('❌ Failed to load user:', err);
-      this.error = 'Failed to load user data';
-    } finally {
-      this.loading = false;
+      this.error = 'Failed to load manager info.';
+      return;
+    }
+
+    try {
+      const res = await apiFetch('/api/feedback/all');
+      if (!res.ok) throw new Error('Failed to fetch feedbacks');
+      const data = await res.json();
+
+      // Filter into two groups
+      this.feedbacks = data.filter(
+        (fb) => fb.fromUser.id === this.user.id || fb.toUser.id === this.user.id
+      );
+    } catch (err) {
+      console.error('Error loading feedbacks:', err);
+      this.error = 'Could not load feedback list.';
     }
   }
+
 
   handleLogout = () => {
     localStorage.removeItem('token');
@@ -30,23 +44,81 @@ export class ManagerDashboard {
     window.location.href = '/';
   };
 
+  toggleForm = () => {
+    this.showFeedbackForm = !this.showFeedbackForm;
+  };
+
+  toggleCycleForm = () => {
+    this.showCycleForm = !this.showCycleForm;
+  };
+
   render() {
-    if (this.loading) {
-      return <p>Loading your dashboard...</p>;
-    }
-
-    if (this.error) {
-      return <p class="error">{this.error}</p>;
-    }
-
     return (
-      <div class="manager-dashboard">
-        <h2>Welcome, {this.user.name}</h2>
-        <p>Email: {this.user.email}</p>
-        <p>Role: {this.user.role}</p>
-
-        <div class="actions">
+      <div class="manager-dashboard-container">
+        <div class="header">
+          <h2>🧑‍💼 Manager Dashboard</h2>
           <button onClick={this.handleLogout}>Logout</button>
+        </div>
+
+        {this.error && <p class="error">{this.error}</p>}
+
+        {this.user && (
+          <div class="user-card">
+            <h3>Welcome, {this.user.name}</h3>
+            <p><strong>Email:</strong> {this.user.email}</p>
+            <p><strong>Team:</strong> {this.user.team || 'N/A'}</p>
+          </div>
+        )}
+
+        <div class="section">
+          <h4>📤 Feedback Given by You</h4>
+          {this.feedbacks.filter(fb => fb.fromUser.id === this.user.id).length === 0 ? (
+            <p>No feedback given yet.</p>
+          ) : (
+            <ul class="feedback-list">
+              {this.feedbacks.filter(fb => fb.fromUser.id === this.user.id).map((fb) => (
+                <li>
+                  <p><strong>To:</strong> {fb.toUser.name}</p>
+                  <p><strong>Rating:</strong> {fb.rating}</p>
+                  <p><strong>Comments:</strong> {fb.comments}</p>
+                  <p><strong>Cycle:</strong> {fb.performanceCycle?.title || 'N/A'}</p>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <h4>📥 Feedback Received by You</h4>
+          {this.feedbacks.filter(fb => fb.toUser.id === this.user.id).length === 0 ? (
+            <p>No feedback received yet.</p>
+          ) : (
+            <ul class="feedback-list">
+              {this.feedbacks.filter(fb => fb.toUser.id === this.user.id).map((fb) => (
+                <li>
+                  <p><strong>From:</strong> {fb.fromUser.name}</p>
+                  <p><strong>Rating:</strong> {fb.rating}</p>
+                  <p><strong>Comments:</strong> {fb.comments}</p>
+                  <p><strong>Cycle:</strong> {fb.performanceCycle?.title || 'N/A'}</p>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+
+        {/* ✅ Feedback Toggle Section (unchanged) */}
+        <div class="section">
+          <button onClick={this.toggleForm}>
+            {this.showFeedbackForm ? 'Cancel Feedback' : 'Give Feedback'}
+          </button>
+          {this.showFeedbackForm && <manager-feedback-form />}
+        </div>
+
+        {/* ✅ New Cycle Form Toggle Section */}
+        <div class="section">
+          <button onClick={this.toggleCycleForm}>
+            {this.showCycleForm ? 'Cancel Cycle Form' : '➕ Create Performance Cycle'}
+          </button>
+          {this.showCycleForm && <create-performance-cycle />}
         </div>
       </div>
     );

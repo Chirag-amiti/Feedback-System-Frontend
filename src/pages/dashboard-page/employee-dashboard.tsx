@@ -10,6 +10,7 @@ export class EmployeeDashboard {
   @State() user: any = null;
   @State() error: string = '';
   @State() feedbacks: any[] = [];
+  @State() showForm: boolean = false; // ✅ Added
 
   async componentWillLoad() {
     try {
@@ -41,6 +42,10 @@ export class EmployeeDashboard {
     window.location.href = '/';
   };
 
+  toggleForm = () => {
+    this.showForm = !this.showForm;
+  };
+
   render() {
     return (
       <div class="employee-dashboard-container">
@@ -61,10 +66,13 @@ export class EmployeeDashboard {
           <p>Loading user info...</p>
         )}
 
-        {/* 🔽 Feedback Form (New Section) */}
+        {/* 🔽 Feedback Form (Toggle Button + Conditional Render) */}
         <div class="section">
-          {/* <h4>📝 Submit Feedback</h4> */}
-          <employee-feedback-form></employee-feedback-form>
+          <button onClick={this.toggleForm}>
+            {this.showForm ? 'Cancel Feedback' : 'Give Feedback'}
+          </button>
+
+          {this.showForm && <employee-feedback-form />}
         </div>
 
         <div class="section">
@@ -80,7 +88,6 @@ export class EmployeeDashboard {
                   <p><strong>From:</strong> {fb.fromUser.name}</p>
                   <p><strong>Rating:</strong> {fb.rating}</p>
                   <p><strong>Comments:</strong> {fb.comments}</p>
-
 
                   {/* <p><strong>From:</strong> {fb.fromUser.name}</p>
                   <p><strong>Message:</strong> {fb.message}</p> */}

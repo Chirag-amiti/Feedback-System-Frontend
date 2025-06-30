@@ -105,7 +105,7 @@ export class EmployeeFeedbackForm {
                     </label>
 
                     {/* ❌ Quarter field retained only for reference */}
-                    <label>
+                    {/* <label>
                         Quarter: (no longer used)
                         <input
                             type="text"
@@ -113,7 +113,7 @@ export class EmployeeFeedbackForm {
                             onInput={(e: any) => (this.quarter = e.target.value)}
                             placeholder="e.g. Q1 2025"
                         />
-                    </label>
+                    </label> */}
 
                     <label>
                         Performance Cycle:

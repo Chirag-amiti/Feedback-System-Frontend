@@ -20,6 +20,9 @@ export * from './pages/dashboard-page/employee-dashboard';
 export * from './pages/dashboard-page/manager-dashboard';
 export * from './pages/signup-page/signup-page';
 export * from './pages/dashboard-page/employee-feedback-form';
+export * from './pages/dashboard-page/manager-feedback-form';
+export * from './pages/dashboard-page/create-performance-cycle';
+
 
 
 
