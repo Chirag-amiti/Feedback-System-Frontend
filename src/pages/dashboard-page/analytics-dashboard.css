@@ -1,0 +1,18 @@
+.manager-analytics-container {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  background-color: #fdfdfd;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.analytics-list {
+  list-style: none;
+  padding: 0;
+}
+
+.analytics-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}

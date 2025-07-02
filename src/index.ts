@@ -22,6 +22,8 @@ export * from './pages/signup-page/signup-page';
 export * from './pages/dashboard-page/employee-feedback-form';
 export * from './pages/dashboard-page/manager-feedback-form';
 export * from './pages/dashboard-page/create-performance-cycle';
+export * from './pages/dashboard-page/analytics-dashboard';
+export * from './pages/dashboard-page/team-feedback-page'
 
 
 

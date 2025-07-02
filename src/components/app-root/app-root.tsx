@@ -29,23 +29,31 @@ export class AppRoot {
           <Route path="/">
             <login-page /> {/* Your login component */}
           </Route>
-           <Route path="/signup">
+          <Route path="/signup">
             <signup-page /> {/* Your signup-page component */}
           </Route>
           <Route path="/dashboard">
             <dashboard-page /> {/* Your dashboard component */}
           </Route>
-           <Route path="/employee-dashboard">
+          <Route path="/employee-dashboard">
             <employee-dashboard /> {/* Your employee dashboard component */}
           </Route>
-           <Route path="/manager-dashboard">
+          <Route path="/manager-dashboard">
             <manager-dashboard /> {/* Your manager dashboard component */}
+          </Route>
+
+          <Route path="/dashboard/analytics">
+            <analytics-dashboard /> {/* Your analytics dashboard component */}
+          </Route>
+
+          <Route path="/dashboard/team-feedback">
+            <team-feedback-page />
           </Route>
 
           <Route path={match('/(.*)')}>
             <not-found-page />
           </Route>
-          
+
           {/* Optional: Add a 404 route using a wildcard match */}
           {/*
             import { match } from 'stencil-router-v2'; // You'd need to import match as well

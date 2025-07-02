@@ -1,4 +1,4 @@
-# dashboard-page
+# signup-page
 
 
 
@@ -9,13 +9,13 @@
 
 ### Used by
 
- - [manager-dashboard](.)
+ - [app-root](../../components/app-root)
 
 ### Graph
 ```mermaid
 graph TD;
-  manager-dashboard --> manager-feedback-form
-  style manager-feedback-form fill:#f9f,stroke:#333,stroke-width:4px
+  app-root --> signup-page
+  style signup-page fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

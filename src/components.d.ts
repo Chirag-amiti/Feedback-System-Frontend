@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AnalyticsDashboard {
+    }
     interface AppRoot {
     }
     interface CreatePerformanceCycle {
@@ -26,8 +28,16 @@ export namespace Components {
     }
     interface SignupPage {
     }
+    interface TeamFeedbackPage {
+    }
 }
 declare global {
+    interface HTMLAnalyticsDashboardElement extends Components.AnalyticsDashboard, HTMLStencilElement {
+    }
+    var HTMLAnalyticsDashboardElement: {
+        prototype: HTMLAnalyticsDashboardElement;
+        new (): HTMLAnalyticsDashboardElement;
+    };
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
     }
     var HTMLAppRootElement: {
@@ -88,7 +98,14 @@ declare global {
         prototype: HTMLSignupPageElement;
         new (): HTMLSignupPageElement;
     };
+    interface HTMLTeamFeedbackPageElement extends Components.TeamFeedbackPage, HTMLStencilElement {
+    }
+    var HTMLTeamFeedbackPageElement: {
+        prototype: HTMLTeamFeedbackPageElement;
+        new (): HTMLTeamFeedbackPageElement;
+    };
     interface HTMLElementTagNameMap {
+        "analytics-dashboard": HTMLAnalyticsDashboardElement;
         "app-root": HTMLAppRootElement;
         "create-performance-cycle": HTMLCreatePerformanceCycleElement;
         "dashboard-page": HTMLDashboardPageElement;
@@ -99,9 +116,12 @@ declare global {
         "manager-feedback-form": HTMLManagerFeedbackFormElement;
         "not-found-page": HTMLNotFoundPageElement;
         "signup-page": HTMLSignupPageElement;
+        "team-feedback-page": HTMLTeamFeedbackPageElement;
     }
 }
 declare namespace LocalJSX {
+    interface AnalyticsDashboard {
+    }
     interface AppRoot {
     }
     interface CreatePerformanceCycle {
@@ -122,7 +142,10 @@ declare namespace LocalJSX {
     }
     interface SignupPage {
     }
+    interface TeamFeedbackPage {
+    }
     interface IntrinsicElements {
+        "analytics-dashboard": AnalyticsDashboard;
         "app-root": AppRoot;
         "create-performance-cycle": CreatePerformanceCycle;
         "dashboard-page": DashboardPage;
@@ -133,12 +156,14 @@ declare namespace LocalJSX {
         "manager-feedback-form": ManagerFeedbackForm;
         "not-found-page": NotFoundPage;
         "signup-page": SignupPage;
+        "team-feedback-page": TeamFeedbackPage;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "analytics-dashboard": LocalJSX.AnalyticsDashboard & JSXBase.HTMLAttributes<HTMLAnalyticsDashboardElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "create-performance-cycle": LocalJSX.CreatePerformanceCycle & JSXBase.HTMLAttributes<HTMLCreatePerformanceCycleElement>;
             "dashboard-page": LocalJSX.DashboardPage & JSXBase.HTMLAttributes<HTMLDashboardPageElement>;
@@ -149,6 +174,7 @@ declare module "@stencil/core" {
             "manager-feedback-form": LocalJSX.ManagerFeedbackForm & JSXBase.HTMLAttributes<HTMLManagerFeedbackFormElement>;
             "not-found-page": LocalJSX.NotFoundPage & JSXBase.HTMLAttributes<HTMLNotFoundPageElement>;
             "signup-page": LocalJSX.SignupPage & JSXBase.HTMLAttributes<HTMLSignupPageElement>;
+            "team-feedback-page": LocalJSX.TeamFeedbackPage & JSXBase.HTMLAttributes<HTMLTeamFeedbackPageElement>;
         }
     }
 }

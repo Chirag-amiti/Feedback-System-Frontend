@@ -10,8 +10,8 @@ export class ManagerDashboard {
   @State() feedbacks: any[] = [];
   @State() error: string = '';
   @State() user: any = null;
-  @State() showFeedbackForm: boolean = false; // ✅ Already present
-  @State() showCycleForm: boolean = false;    // ✅ NEW for cycle form
+  @State() showFeedbackForm: boolean = false;
+  @State() showCycleForm: boolean = false;
 
   async componentWillLoad() {
     try {
@@ -105,7 +105,7 @@ export class ManagerDashboard {
         </div>
 
 
-        {/* ✅ Feedback Toggle Section (unchanged) */}
+        {/* Feedback Toggle Section (unchanged) */}
         <div class="section">
           <button onClick={this.toggleForm}>
             {this.showFeedbackForm ? 'Cancel Feedback' : 'Give Feedback'}
@@ -113,7 +113,20 @@ export class ManagerDashboard {
           {this.showFeedbackForm && <manager-feedback-form />}
         </div>
 
-        {/* ✅ New Cycle Form Toggle Section */}
+        <div class="section">
+          <button onClick={() => (window.location.href = '/dashboard/team-feedback')}>
+            👥 View Team Feedback
+          </button>
+        </div>
+
+
+        <div class="section">
+          <button onClick={() => (window.location.href = '/dashboard/analytics')}>
+            📈 View Analytics
+          </button>
+        </div>
+
+        {/* New Cycle Form Toggle Section */}
         <div class="section">
           <button onClick={this.toggleCycleForm}>
             {this.showCycleForm ? 'Cancel Cycle Form' : '➕ Create Performance Cycle'}
