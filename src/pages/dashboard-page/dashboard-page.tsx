@@ -1,8 +1,6 @@
 import { Component, h, State } from '@stencil/core';
 import { apiFetch } from '../../utils/apiFetch';
 
-// import { injectHistory } from 'stencil-router-v2';
-
 @Component({
   tag: 'dashboard-page',
   styleUrl: 'dashboard-page.css',
@@ -18,13 +16,11 @@ export class DashboardPage {
     const token = localStorage.getItem('token');
 
     if (!token) {
-      // No token, redirect to login
       window.location.href = '/';
       return;
     }
 
     try {
-      // Fetch user info using token
       const res = await apiFetch('/api/users/me');
       const data = await res.json();
 
@@ -45,15 +41,8 @@ export class DashboardPage {
 
   render() {
     if (this.redirectUrl) {
-      // return <stencil-router-redirect url={this.redirectUrl} />;
-
       window.location.href = this.redirectUrl;
       return;
-
-
-      // return (<stencil-router-redirect url={this.redirectUrl} />);
-        //  this.history.push(this.redirectUrl);
-      // return (<div class="dashboard-container"> <h2>Dashboard</h2> </div>);
     }
 
     return <p>🔃 Redirecting...</p>;

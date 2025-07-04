@@ -80,7 +80,7 @@ export class ManagerDashboard {
                 <li>
                   <p><strong>To:</strong> {fb.toUser.name}</p>
                   <p><strong>Rating:</strong> {fb.rating}</p>
-                  <p><strong>Comments:</strong> {fb.comments}</p>
+                  <p><strong>Feedback:</strong> {fb.comments}</p>
                   <p><strong>Cycle:</strong> {fb.performanceCycle?.title || 'N/A'}</p>
                 </li>
               ))}
@@ -96,7 +96,7 @@ export class ManagerDashboard {
                 <li>
                   <p><strong>From:</strong> {fb.fromUser.name}</p>
                   <p><strong>Rating:</strong> {fb.rating}</p>
-                  <p><strong>Comments:</strong> {fb.comments}</p>
+                  <p><strong>Feedback:</strong> {fb.comments}</p>
                   <p><strong>Cycle:</strong> {fb.performanceCycle?.title || 'N/A'}</p>
                 </li>
               ))}
@@ -104,8 +104,6 @@ export class ManagerDashboard {
           )}
         </div>
 
-
-        {/* Feedback Toggle Section (unchanged) */}
         <div class="section">
           <button onClick={this.toggleForm}>
             {this.showFeedbackForm ? 'Cancel Feedback' : 'Give Feedback'}
@@ -126,7 +124,6 @@ export class ManagerDashboard {
           </button>
         </div>
 
-        {/* New Cycle Form Toggle Section */}
         <div class="section">
           <button onClick={this.toggleCycleForm}>
             {this.showCycleForm ? 'Cancel Cycle Form' : '➕ Create Performance Cycle'}

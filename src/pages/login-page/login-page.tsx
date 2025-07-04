@@ -55,6 +55,11 @@ export class LoginPage {
   }
 
   render() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      window.location.href = '/dashboard';
+      return null;
+    }
     return (
       <div class="login-container">
         <h2>Login</h2>

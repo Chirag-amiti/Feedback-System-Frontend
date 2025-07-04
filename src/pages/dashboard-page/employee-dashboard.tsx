@@ -10,7 +10,7 @@ export class EmployeeDashboard {
   @State() user: any = null;
   @State() error: string = '';
   @State() feedbacks: any[] = [];
-  @State() showForm: boolean = false; // ✅ Added
+  @State() showForm: boolean = false;
 
   async componentWillLoad() {
     try {
@@ -66,7 +66,6 @@ export class EmployeeDashboard {
           <p>Loading user info...</p>
         )}
 
-        {/* 🔽 Feedback Form (Toggle Button + Conditional Render) */}
         <div class="section">
           <button onClick={this.toggleForm}>
             {this.showForm ? 'Cancel Feedback' : 'Give Feedback'}
@@ -83,14 +82,10 @@ export class EmployeeDashboard {
             <ul class="feedback-list">
               {this.feedbacks.map((fb) => (
                 <li>
-                  {/* <p><strong>Quarter:</strong> {fb.quarter}</p> */}
                   <p><strong>Quarter:</strong> {fb.performanceCycle?.title || 'N/A'}</p>
                   <p><strong>From:</strong> {fb.fromUser.name}</p>
                   <p><strong>Rating:</strong> {fb.rating}</p>
-                  <p><strong>Comments:</strong> {fb.comments}</p>
-
-                  {/* <p><strong>From:</strong> {fb.fromUser.name}</p>
-                  <p><strong>Message:</strong> {fb.message}</p> */}
+                  <p><strong>Feedback:</strong> {fb.comments}</p>
                 </li>
               ))}
             </ul>
