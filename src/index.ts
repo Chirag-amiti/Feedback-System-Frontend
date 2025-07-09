@@ -24,6 +24,7 @@ export * from './pages/dashboard-page/manager-feedback-form';
 export * from './pages/dashboard-page/create-performance-cycle';
 export * from './pages/dashboard-page/analytics-dashboard';
 export * from './pages/dashboard-page/team-feedback-page'
+export * from './pages/admin-dashboard/admin-dashboard'
 
 
 

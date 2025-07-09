@@ -10,7 +10,6 @@ export class SignupPage {
   @State() email: string = '';
   @State() password: string = '';
   @State() team: string = '';
-  // Added new state for role, initialized to an empty string
   @State() role: string = '';
   @State() error: string = '';
   @State() success: string = '';
@@ -31,8 +30,6 @@ export class SignupPage {
           email: this.email,
           password: this.password,
           team: this.team,
-          // Include the role in the request body. If role is an empty string, send null.
-          // Your backend logic should then default null roles to 'EMPLOYEE'.
           role: this.role === '' ? null : this.role,
         }),
       });
@@ -98,7 +95,7 @@ export class SignupPage {
             />
           </label>
 
-          <label>
+          {/* <label>
             Role (Optional):
             <select
               onChange={(e: Event) =>
@@ -108,8 +105,9 @@ export class SignupPage {
               <option value="">Select Role</option>
               <option value="EMPLOYEE">Employee</option>
               <option value="MANAGER">Manager</option>
+              <option value="ADMIN">Admin</option>
             </select>
-          </label>
+          </label> */}
 
 
           <button type="submit">Sign Up</button>

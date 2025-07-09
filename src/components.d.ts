@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AdminDashboard {
+    }
     interface AnalyticsDashboard {
     }
     interface AppRoot {
@@ -32,6 +34,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLAdminDashboardElement extends Components.AdminDashboard, HTMLStencilElement {
+    }
+    var HTMLAdminDashboardElement: {
+        prototype: HTMLAdminDashboardElement;
+        new (): HTMLAdminDashboardElement;
+    };
     interface HTMLAnalyticsDashboardElement extends Components.AnalyticsDashboard, HTMLStencilElement {
     }
     var HTMLAnalyticsDashboardElement: {
@@ -105,6 +113,7 @@ declare global {
         new (): HTMLTeamFeedbackPageElement;
     };
     interface HTMLElementTagNameMap {
+        "admin-dashboard": HTMLAdminDashboardElement;
         "analytics-dashboard": HTMLAnalyticsDashboardElement;
         "app-root": HTMLAppRootElement;
         "create-performance-cycle": HTMLCreatePerformanceCycleElement;
@@ -120,6 +129,8 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface AdminDashboard {
+    }
     interface AnalyticsDashboard {
     }
     interface AppRoot {
@@ -145,6 +156,7 @@ declare namespace LocalJSX {
     interface TeamFeedbackPage {
     }
     interface IntrinsicElements {
+        "admin-dashboard": AdminDashboard;
         "analytics-dashboard": AnalyticsDashboard;
         "app-root": AppRoot;
         "create-performance-cycle": CreatePerformanceCycle;
@@ -163,6 +175,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "admin-dashboard": LocalJSX.AdminDashboard & JSXBase.HTMLAttributes<HTMLAdminDashboardElement>;
             "analytics-dashboard": LocalJSX.AnalyticsDashboard & JSXBase.HTMLAttributes<HTMLAnalyticsDashboardElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "create-performance-cycle": LocalJSX.CreatePerformanceCycle & JSXBase.HTMLAttributes<HTMLCreatePerformanceCycleElement>;
